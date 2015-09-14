@@ -24,7 +24,7 @@ class License(dict):
 
     @property
     def superseded(self):
-        return 'superseded_by' in self and self['superseded_by'] != None
+        return self.get('superseded_by') is not None
 
     def __repr__(self):
         return '<License {id} ({name})>'.format(**self)
