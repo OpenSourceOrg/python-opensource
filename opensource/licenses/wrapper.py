@@ -18,12 +18,23 @@ import requests
 import os
 
 class License(dict):
+    """
+    Dict subclass (you can use me like a dict!) for License information. This
+    contains a few helper methods to clean up code using the License
+    information API.
+    """
+
     def __init__(self, *args, **kwargs):
         super(License, self).__init__(*args, **kwargs)
         self.__dict__ = self
 
     @property
     def superseded(self):
+        """
+        Check to see if a license has been superseded by another license. This
+        method returns a boolean. The identifier that this license was
+        superseded by, if true, is contained in 'superseded_by'
+        """
         return self.get('superseded_by') is not None
 
     def __repr__(self):
@@ -32,15 +43,16 @@ class License(dict):
 
 class OpenSourceAPI(object):
     """
+    Open Source API Wrapper
     """
 
     def __init__(self, url="http://api.opensource.org"):
-        """
-        """
         self.url = url
 
     def _get(self, resource, *args):
         """
+        Internal method to fetch an API endpoint with a bit of sugar to make
+        the rest of the code a bit more readable.
         """
         response = requests.get(os.path.join(self.url, resource, *args))
         data = response.json()
@@ -50,15 +62,19 @@ class OpenSourceAPI(object):
 
     def all(self):
         """
+        Return a list of all license identifiers that the server knows about.
         """
         return self._get("licenses")
 
     def tagged(self, tag):
         """
+        Return a list of all License objects that are tagged with a given
+        tag.
         """
         return [License(x) for x in self._get("licenses", tag)]
 
     def get(self, name):
         """
+        Return a License object for the given identifier.
         """
         return [License(x) for x in self._get("license", name)]
