@@ -14,6 +14,9 @@ setup(
     long_description=long_description,
     description='n/a',
     license="GPL-3.0+",
+    install_requires=[
+        "requests",
+    ],
     url="",
     platforms=['any']
 )
