@@ -29,6 +29,12 @@ class License(dict):
         self.__dict__ = self
 
     @property
+    def other_names(self):
+        if 'other_names' in self and self['other_names'] != None:
+            return self['other_names']
+        return []
+
+    @property
     def superseded(self):
         """
         Check to see if a license has been superseded by another license. This
