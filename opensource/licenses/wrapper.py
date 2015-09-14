@@ -83,4 +83,4 @@ class OpenSourceAPI(object):
         """
         Return a License object for the given identifier.
         """
-        return [License(x) for x in self._get("license", name)]
+        return License(self._get("license", name))
