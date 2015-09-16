@@ -70,7 +70,7 @@ class OpenSourceAPI(object):
         """
         Return a list of all license identifiers that the server knows about.
         """
-        return self._get("licenses")
+        return [License(x) for x in self._get("licenses")]
 
     def tagged(self, tag):
         """
