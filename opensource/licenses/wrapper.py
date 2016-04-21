@@ -52,7 +52,7 @@ class OpenSourceAPI(object):
     Open Source API Wrapper
     """
 
-    def __init__(self, url="http://api.opensource.org"):
+    def __init__(self, url="https://api.opensource.org"):
         self.url = url
 
     def _get(self, resource, *args):
