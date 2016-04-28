@@ -11,7 +11,7 @@ some (very brief!) documentation can be found in the API server documentation
 
 setup(
     name="opensource",
-    version="1.0",
+    version="1.0.1",
     packages=[
         'opensource',
         'opensource.licenses',
