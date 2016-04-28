@@ -7,5 +7,5 @@ Example:
 from opensource import licenses
 
 for license in licenses.tagged("copyleft"):
-    print(license['name'])
+    print(license.name)
 ```
