@@ -20,7 +20,7 @@ setup(
     author_email="paultag@opensource.org",
     long_description=long_description,
     description="Query the Open Source License API",
-    license="GPL-3.0+",
+    license="MIT",
     install_requires=[
         "requests",
     ],
