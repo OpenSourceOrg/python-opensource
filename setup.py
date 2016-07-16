@@ -24,6 +24,6 @@ setup(
     install_requires=[
         "requests",
     ],
-    url="",
+    url="https://github.com/OpenSourceOrg/python-opensource",
     platforms=['any']
 )
